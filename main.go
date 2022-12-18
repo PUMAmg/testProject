@@ -1,11 +1,31 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func main() {
-	var ver = "v0.0.1"
-	var id int
-	pi := 3.1415
+	// Получаем читателя пользовательского ввода
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Interaction counter")
 
-	fmt.Println("ver =", ver, "id =", id, "pi =", pi)
+	cnt := 0
+	for {
+		fmt.Print("-> ")
+		// Считываем введённую пользователем строку. Программа ждёт, пока пользователь введёт строку
+		_, err := reader.ReadString('\n')
+		if err != nil {
+			panic(err)
+		}
+
+		f(&cnt)
+
+		fmt.Printf("User input %d lines\n", cnt)
+	}
+}
+
+func f(p *int) {
+	*p++
 }
