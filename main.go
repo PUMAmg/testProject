@@ -36,4 +36,21 @@ func main() {
 	fmt.Println(weekTempArr)
 	*/
 
+	//Задание 8
+	//Создайте слайс и заполните его числами от 1 до 100.
+	//Оставьте в слайсе первые и последние 10 элементов и разверните слайс в обратном порядке.
+	hundredSlice := make([]int, 100)
+	for i := 0; i < 100; i++ {
+		hundredSlice[i] = i + 1
+	}
+	fmt.Println(hundredSlice)
+	if len(hundredSlice) != 0 {
+		hundredSlice = append(hundredSlice[:10], hundredSlice[len(hundredSlice)-10:]...)
+	}
+	fmt.Println(hundredSlice)
+	for i := range hundredSlice[:len(hundredSlice)/2] {
+		hundredSlice[i], hundredSlice[len(hundredSlice)-i-1] = hundredSlice[len(hundredSlice)-i-1], hundredSlice[i]
+	}
+	fmt.Println(hundredSlice)
+
 }
