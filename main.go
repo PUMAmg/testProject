@@ -11,6 +11,7 @@ func main() {
 			fmt.Println(k)
 		}
 	}
+	//Кривая реализация
 	orderSum := 0
 	for _, v := range order {
 		for k, vm := range prices {
@@ -19,5 +20,12 @@ func main() {
 			}
 		}
 	}
-	fmt.Printf("Стоимость заказа - %d", orderSum)
+	fmt.Printf("Стоимость заказа - %d \n", orderSum)
+	//Адекватная реализация
+	totalOrder := 0
+	for _, v := range order {
+		totalOrder += prices[v]
+	}
+	fmt.Println("Стоимость заказа -", totalOrder)
+
 }
